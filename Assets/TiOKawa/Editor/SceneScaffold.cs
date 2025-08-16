@@ -40,7 +40,7 @@ namespace TiOKawa.Editor
         
         void CreateAssemblyReferences()
         {
-            const string scriptsBasePath = "Assets/Project/Scenes";
+            const string scriptsBasePath = "Assets/TiOKawa/Scenes";
             string[] asmdefNames = { "Model", "Presenter", "View" };
 
             var scenePath = Path.Combine(scriptsBasePath, sceneName);
