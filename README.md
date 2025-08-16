@@ -1,58 +1,58 @@
 # TiOKawa
 
-## OverView
+## 概要
 
-TiOKawa is a Unity framework that provides a structured approach to Unity development using the MVP (Model-View-Presenter) architectural pattern. The framework is designed to help developers create maintainable and scalable Unity projects by separating concerns and providing reactive programming capabilities through UniRx integration.
+TiOKawaは、MVP（Model-View-Presenter）アーキテクチャパターンを使用してUnity開発に構造化されたアプローチを提供するUnityフレームワークです。このフレームワークは、関心の分離を行い、UniRx統合を通じてリアクティブプログラミング機能を提供することで、開発者が保守性と拡張性の高いUnityプロジェクトを作成できるように設計されています。
 
-Key features:
-- MVP architectural pattern implementation for Unity
-- Scene scaffolding tools for rapid project setup
-- Reactive UI components with UniRx integration
-- Modular assembly structure with clear separation of concerns
-- Unity Editor tools for automated project structure generation
+主な特徴：
+- Unity向けMVPアーキテクチャパターンの実装
+- 迅速なプロジェクトセットアップのためのシーンスキャフォールディングツール
+- UniRx統合によるリアクティブUIコンポーネント
+- 明確な関心の分離を持つモジュラーアセンブリ構造
+- 自動プロジェクト構造生成のためのUnity Editorツール
 
-## Architecture
+## アーキテクチャ
 
-TiOKawa implements the MVP (Model-View-Presenter) pattern with the following structure:
+TiOKawaは以下の構造でMVP（Model-View-Presenter）パターンを実装しています：
 
-### Core Components
+### コアコンポーネント
 
-- **Model**: Data layer handling business logic and state management
-- **View**: UI layer containing MonoBehaviour-based components that handle user interactions
-- **Presenter**: Mediator layer that connects Models and Views, managing the flow of data and user interactions
+- **Model**: ビジネスロジックと状態管理を扱うデータ層
+- **View**: ユーザーインタラクションを処理するMonoBehaviourベースのコンポーネントを含むUI層
+- **Presenter**: ModelとViewを接続し、データとユーザーインタラクションの流れを管理する仲介層
 
-### Key Classes
+### 主要クラス
 
-- `MonoView`: Abstract base class for all View components, providing initialization lifecycle
-- `MonoPresenter`: Abstract base class for Presenter components with setup hooks for Model, View, and subscriptions
-- `ButtonBase`: Reactive button implementation using UniRx for event handling
-- `SceneScaffold`: Unity Editor tool for automatic generation of MVP folder structures and assembly references
+- `MonoView`: すべてのViewコンポーネントの抽象基底クラス。初期化ライフサイクルを提供
+- `MonoPresenter`: Model、View、サブスクリプションのセットアップフックを持つPresenterコンポーネントの抽象基底クラス
+- `ButtonBase`: イベント処理にUniRxを使用するリアクティブボタンの実装
+- `SceneScaffold`: MVPフォルダ構造とアセンブリ参照の自動生成を行うUnity Editorツール
 
-### Project Structure
+### プロジェクト構造
 
 ```
 Assets/TiOKawa/
 ├── Editor/
-│   └── SceneScaffold.cs        # Editor tool for scaffolding
+│   └── SceneScaffold.cs        # スキャフォールディング用Editorツール
 ├── Scripts/
-│   ├── Model/                  # Business logic layer
-│   ├── Presenter/              # Mediator layer
+│   ├── Model/                  # ビジネスロジック層
+│   ├── Presenter/              # 仲介層
 │   │   └── MonoPresenter.cs
-│   └── VIew/                   # UI layer
+│   └── VIew/                   # UI層
 │       ├── MonoView.cs
 │       ├── ButtonBase.cs
 │       └── SimpleButton.cs
-└── Scenes/                     # Scene-specific implementations
+└── Scenes/                     # シーン固有の実装
     ├── Battle/
     └── Title/
 ```
 
-### Dependencies
+### 依存関係
 
-- **UniRx**: For reactive programming and event handling
-- **UniTask**: For async/await support in Unity
+- **UniRx**: リアクティブプログラミングとイベント処理のため
+- **UniTask**: UnityでのAsync/Awaitサポートのため
 
-## COntributers
+## 貢献者
 
-- **kuto** - Project creator and main developer
-- **copilot-swe-agent[bot]** - Automated contributions
+- **kuto** - プロジェクト作成者およびメイン開発者
+- **copilot-swe-agent[bot]** - 自動化による貢献
