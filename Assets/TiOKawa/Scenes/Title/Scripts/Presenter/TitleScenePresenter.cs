@@ -9,7 +9,6 @@ public class TitleScenePresenter : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("OnPointerDown発火");
         startButton.OnClicked
             .Subscribe(_ => OnStartButtonClicked())
             .AddTo(this);
