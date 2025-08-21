@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    public AudioClip gatePassClip;
-    public AudioClip collisionClip;
-    public AudioClip damageClip;
-    AudioSource audioSource;
+    [SerializeField] private AudioClip gatePassClip;
+    [SerializeField] private AudioClip collisionClip;
+    [SerializeField] private AudioClip damageClip;
+    private AudioSource audioSource;
 
-    void Start() {
+    void Awake() {
         audioSource = GetComponent<AudioSource>();
     }
 
