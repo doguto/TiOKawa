@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundPresenter : MonoBehaviour
+public class SoundController : MonoBehaviour
 {
     public AudioClip gatePassClip;
     public AudioClip collisionClip;
