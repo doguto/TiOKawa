@@ -24,8 +24,24 @@ TiOKawaは**MVP（Model-View-Presenter）**アーキテクチャパターンを�
 // ✅ 正しい実装
 public class PlayerModel 
 {
-    public int Health { get; private set; }
-    public void TakeDamage(int damage) { /* logic */ }
+    public int AttackPower { get; private set; } = 10;
+    
+    public int Attack(AttackData attackData)
+    {
+        // 攻撃処理のビジネスロジック
+        return AttackPower + attackData.BonusDamage;
+    }
+}
+
+public class EnemyModel
+{
+    public int MaxHP { get; private set; } = 100;
+    public int CurrentHP { get; private set; } = 100;
+    
+    public void TakeDamage(int damage)
+    {
+        CurrentHP = Mathf.Max(0, CurrentHP - damage);
+    }
 }
 
 // ❌ 間違った実装
@@ -72,7 +88,11 @@ public class GamePresenter : MonoPresenter
     private void OnPlayerAttack(AttackData attack)
     {
         // PresenterからModelのメソッドを呼ぶ
-        playerModel.Attack(attack);
+        var damage = playerModel.Attack(attack);
+        
+        // Modelの処理後、Viewに画面更新を反映
+        enemyModel.TakeDamage(damage);
+        enemyView.UpdateHP(enemyModel.CurrentHP);
     }
 }
 ```
@@ -102,6 +122,17 @@ public class PlayerView : MonoView
     void OnDestroy()
     {
         onAttack.Dispose(); // リソースの解放
+    }
+}
+
+public class EnemyView : MonoView
+{
+    [SerializeField] private Text hpText;
+    
+    // PresenterからUI更新を指示される
+    public void UpdateHP(int currentHP)
+    {
+        hpText.text = $"HP: {currentHP}";
     }
 }
 ```
