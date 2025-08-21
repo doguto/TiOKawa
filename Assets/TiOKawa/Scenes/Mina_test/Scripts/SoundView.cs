@@ -8,19 +8,27 @@ public class SoundController : MonoBehaviour
     private AudioSource audioSource;
 
     void Awake() {
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) {
+            Debug.LogError("AudioSource component missing on " + gameObject.name + ". SoundController will not function properly.");
+        }
     }
 
     public void PlayGatePassSound() {
-        audioSource.PlayOneShot(gatePassClip);
+        if (audioSource != null) {
+            audioSource.PlayOneShot(gatePassClip);
+        }
     }
 
     public void PlayCollisionSound() {
-        audioSource.PlayOneShot(collisionClip);
+        if (audioSource != null) {
+            audioSource.PlayOneShot(collisionClip);
+        }
     }
 
     public void PlayDamageSound() {
-        audioSource.PlayOneShot(damageClip);
+        if (audioSource != null) {
+            audioSource.PlayOneShot(damageClip);
+        }
     }
 
 }

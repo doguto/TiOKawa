@@ -8,7 +8,7 @@ public class SoundPresenter : MonoBehaviour {
     void Start() {
         gate.OnPassed
             .Subscribe(_ => soundController.PlayGatePassSound())
-            .AddTo(this);.
+            .AddTo(this);
     }
 
 }

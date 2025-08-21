@@ -2,7 +2,7 @@ using UnityEngine;
 using UniRx;
 
 // 例）ゲートを通った判定
-publoic class Gate : MonoBehaviour {
+public class Gate : MonoBehaviour {
     private readonly subject<Unit> onPassed = new();
     public IObservable<Unit> OnPassed => onPassed;
 
