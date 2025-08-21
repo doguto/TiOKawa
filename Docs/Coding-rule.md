@@ -65,8 +65,14 @@ public class GamePresenter : MonoPresenter
     {
         // Viewの監視（オブザーバーパターン）
         playerView.OnAttack.Subscribe(attack => {
-            playerModel.Attack(attack);
+            OnPlayerAttack(attack);  // Presenterのメソッドを呼ぶ
         });
+    }
+    
+    private void OnPlayerAttack(AttackData attack)
+    {
+        // PresenterからModelのメソッドを呼ぶ
+        playerModel.Attack(attack);
     }
 }
 ```
