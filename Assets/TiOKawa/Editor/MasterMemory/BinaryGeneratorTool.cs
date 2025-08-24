@@ -9,7 +9,7 @@ namespace TiOKawa.Editor.MasterMemory
         static void GenerateMasterBinary()
         {
             var generator = new MasterDataBinaryGenerator();
-            IMasterDataFactory factory = new MasterDataFactory();
+            var factory = new MasterDataFactory();
             
             var masterData = factory.Create();
             generator.Generate(masterData);

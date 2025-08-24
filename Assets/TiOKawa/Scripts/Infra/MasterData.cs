@@ -1,9 +1,10 @@
-﻿using TiOKawa.Scripts.Infra.Schema;
+﻿using System.Collections.Generic;
+using TiOKawa.Scripts.Infra.Schema;
 
 namespace TiOKawa.Scripts.Infra
 {
     public class MasterData
     {
-        public Test[] Tests { get; set; }
+        public List<Test> Tests { get; set; }
     }
 }
