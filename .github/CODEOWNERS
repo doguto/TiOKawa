@@ -1,0 +1,14 @@
+# CODEOWNERS file for TiOKawa
+# This file defines who is responsible for reviewing changes to specific files or directories
+
+# Assembly Definition Files (.asmdef) require review from @doguto
+# These files control library dependencies and should not be modified without careful consideration
+*.asmdef    @doguto
+
+# Core framework files require review from @doguto
+# These files form the foundation of the MVP architecture
+/Assets/TiOKawa/Scripts/    @doguto
+
+# Editor tools require review from @doguto
+# These tools are used for scaffolding and code generation
+/Assets/TiOKawa/Editor/     @doguto
