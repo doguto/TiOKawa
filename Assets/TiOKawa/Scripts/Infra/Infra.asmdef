@@ -1,0 +1,21 @@
+{
+    "name": "Infra",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ad7c0c2b17f391c459b3030e15f66e17"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "MasterMemory.dll",
+        "MasterMemory.Annotations.dll",
+        "MessagePack.dll",
+        "MessagePack.Annotations.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
