@@ -8,5 +8,6 @@ namespace TiOKawa.Scripts.Infra
         public List<Test> Tests { get; set; }
         public List<Battle> Battles { get; set; }
         public List<BattleWave> BattleWaves { get; set; }
+        public List<Enemy> Enemies { get; set; }
     }
 }

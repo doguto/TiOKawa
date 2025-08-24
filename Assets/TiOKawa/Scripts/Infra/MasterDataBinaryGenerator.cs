@@ -11,6 +11,7 @@
             databaseBuilder.Append(data.Tests);
             databaseBuilder.Append(data.Battles);
             databaseBuilder.Append(data.BattleWaves);
+            databaseBuilder.Append(data.Enemies);
             
             WriteBinary(databaseBuilder);
         }
