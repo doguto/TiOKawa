@@ -31,6 +31,7 @@ namespace TiOKawa.Scripts.View
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            
             image.color = originalColor;
         }
     }
