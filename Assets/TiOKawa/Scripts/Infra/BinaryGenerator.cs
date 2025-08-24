@@ -8,7 +8,7 @@ namespace TiOKawa.Scripts.Infra
 {
     public abstract class BinaryGenerator<T>
     {
-        protected const string BinaryDirectoryPath = "Assets/Project/DataStore/Binary";
+        protected const string BinaryDirectoryPath = "Assets/TiOKawa/DataStore/Binary";
         protected abstract string DataName { get; }
         protected string BinaryFilePath => Path.Combine(BinaryDirectoryPath, $"{DataName}.bytes");
         protected string DirectoryName => Path.GetDirectoryName(BinaryFilePath);
