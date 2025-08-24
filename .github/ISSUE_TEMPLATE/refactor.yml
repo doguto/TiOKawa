@@ -1,0 +1,35 @@
+name: 🔧 Refactor
+description: コードのリファクタリング提案
+title: "[REFACTOR] "
+labels: ["refactor", "technical-debt"]
+assignees: []
+body:
+  - type: textarea
+    id: target
+    attributes:
+      label: リファクタリング詳細
+      description: リファクタリングしたい箇所の現行の問題点を説明してください
+      placeholder: どの部分をリファクタリングしたいですか？
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: 提案する改善方法
+      description: どのようにリファクタリングするか、具体的な提案を記述してください
+      placeholder: 具体的な改善方法を記述してください
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影響範囲
+      description: このリファクタリングが他の部分に与える影響を説明してください
+      placeholder: 他のコードやテストに与える影響があれば記述してください
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 追加情報
+      description: その他、関連する情報があれば記述してください
+      placeholder: 参考資料、関連Issue、設計方針など
