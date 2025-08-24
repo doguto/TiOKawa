@@ -11,7 +11,10 @@ namespace TiOKawa.Scripts.Infra
             var masterData = new MasterData();
 
             var testData = AssetDatabase.LoadAssetAtPath<TestData>($"{OriginDataDirectory}/TestData.asset");
+            var battleData = AssetDatabase.LoadAssetAtPath<BattleData>($"{OriginDataDirectory}/BattleData.asset");
+            
             masterData.Tests = testData.tests.Select(x => x.ToTest()).ToList();
+            masterData.Battles = battleData.battles.Select(x => x.ToBattle()).ToList();
             
             return masterData;
         }

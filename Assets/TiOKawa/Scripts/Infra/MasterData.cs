@@ -6,5 +6,6 @@ namespace TiOKawa.Scripts.Infra
     public class MasterData
     {
         public List<Test> Tests { get; set; }
+        public List<Battle> Battles { get; set; }
     }
 }
