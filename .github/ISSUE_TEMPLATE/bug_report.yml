@@ -1,0 +1,35 @@
+name: 🐛 Bug Report
+description: バグの報告
+title: "[BUGFIX] "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: バグの説明
+      description: バグの内容を詳しく説明してください
+      placeholder: 何が起こっているか説明してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動作
+      description: 本来どのような動作になるべきかを説明してください
+      placeholder: 期待していた結果を記述してください
+      
+  - type: textarea
+    id: solution
+    attributes:
+      label: 修正方法
+      description: 可能であればバグの修正方法を説明してください
+      placeholder: 可能であれば修正するための方法を記述してください
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 追加情報
+      description: スクリーンショット、ログ、その他の関連情報
+      placeholder: スクリーンショットやログがあれば添付してください
