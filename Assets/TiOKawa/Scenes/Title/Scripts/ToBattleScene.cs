@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ToBattleSceneButton : MonoBehaviour
 {
+private const string BattleSceneName = "Battle";
     public void OnClickToBattleSceneButton()
     {
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene(BattleSceneName);
     }
 }
