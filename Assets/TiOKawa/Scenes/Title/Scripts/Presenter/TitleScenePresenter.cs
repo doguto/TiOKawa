@@ -2,20 +2,23 @@ using UnityEngine;
 using TiOKawa.Scripts.View;
 using UniRx;
 using UnityEngine.SceneManagement;
-
-public class TitleScenePresenter : MonoBehaviour
+using TiOKawa.Scripts.Presenter;
+namespace TiOKawa.Scenes.Title.Scripts.Presenter
 {
-    [SerializeField] SimpleButton startButton;
-
-    private void SubscribeView()
+    public class TitleScenePresenter : MonoPresenter
     {
-        startButton.OnClicked
-            .Subscribe(_ => OnStartButtonClicked())
-            .AddTo(this);
-    }
+        [SerializeField] SimpleButton startButton;
 
-    void OnStartButtonClicked()
-    {
-        SceneManager.LoadScene("Battle");
+        protected override void SubscribeView()
+        {
+            startButton.OnClicked
+                .Subscribe(_ => OnStartButtonClicked())
+                .AddTo(this);
+        }
+
+        void OnStartButtonClicked()
+        {
+            SceneManager.LoadScene("Battle");
+        }
     }
 }

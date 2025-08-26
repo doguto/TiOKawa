@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace TiOKawa.Scenes.Title.Scripts.View
 {
-    public class ToBattleSceneButton : MonoPresenter
+    public class ToBattleSceneButton : MonoBehaviour
     {
         private const string BattleSceneName = "Battle";
         public void OnClickToBattleSceneButton()
