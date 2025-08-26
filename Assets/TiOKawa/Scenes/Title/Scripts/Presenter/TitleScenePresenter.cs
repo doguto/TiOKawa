@@ -7,7 +7,7 @@ public class TitleScenePresenter : MonoBehaviour
 {
     [SerializeField] SimpleButton startButton;
 
-    void Start()
+    private void SubscribeView()
     {
         startButton.OnClicked
             .Subscribe(_ => OnStartButtonClicked())
