@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TiOKawa.Scripts.Infra.Schema;
 using UnityEngine;
 
-namespace TiOKawa.Scripts.Infra.ScriptableObject
+namespace TiOKawa.Scripts.Infra.Origin
 {
     [CreateAssetMenu(fileName = "BattleWaveData", menuName = "ScriptableObject/BattleWave")]
-    public class BattleWaveData : UnityEngine.ScriptableObject
+    public class BattleWaveData : ScriptableObject
     {
         public List<ScriptableBattleWave> battleWaves = new();
     }

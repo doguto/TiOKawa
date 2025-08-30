@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using TiOKawa.Scripts.Infra.ScriptableObject;
+using TiOKawa.Scripts.Infra.Origin;
 using UnityEditor;
 
 namespace TiOKawa.Scripts.Infra

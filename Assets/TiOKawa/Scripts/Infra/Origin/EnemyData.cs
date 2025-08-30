@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TiOKawa.Scripts.Infra.Schema;
 using UnityEngine;
 
-namespace TiOKawa.Scripts.Infra.ScriptableObject
+namespace TiOKawa.Scripts.Infra.Origin
 {
     [CreateAssetMenu(fileName = "EnemyData", menuName = "ScriptableObject/Enemy")]
-    public class EnemyData : UnityEngine.ScriptableObject
+    public class EnemyData : ScriptableObject
     {
         public List<ScriptableEnemy> enemies = new();
     }
