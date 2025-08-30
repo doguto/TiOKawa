@@ -1,12 +1,13 @@
+using TiOKawa.Scripts.View;
 using UnityEngine;
 
 namespace TiOKawa.Scenes.MinaTest.Scripts.View {
-    public class SoundController : MonoBehaviour
+    public class SoundView : MonoView
     {
         [SerializeField] private AudioClip gatePassClip;
         [SerializeField] private AudioClip collisionClip;
         [SerializeField] private AudioClip damageClip;
-        private AudioSource audioSource;
+        [SerializeField] private AudioSource audioSource;
 
         void Awake() {
             if (audioSource == null) {
