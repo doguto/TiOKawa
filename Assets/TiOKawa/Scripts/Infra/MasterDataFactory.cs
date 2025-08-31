@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using TiOKawa.Scripts.Infra.Origin;
+using TiOKawa.Scripts.Infra.Schema;
 using UnityEditor;
 
 namespace TiOKawa.Scripts.Infra
@@ -19,6 +20,11 @@ namespace TiOKawa.Scripts.Infra
             var battleWaveData = AssetDatabase.LoadAssetAtPath<BattleWaveData>($"{OriginDataDirectory}/BattleWaveData.asset");
             masterData.BattleWaves = battleWaveData.battleWaves.Select(x => x.ToBattleWave()).ToList();
 
+            var battleWaveEnemyData = AssetDatabase.LoadAssetAtPath<BattleWaveEnemyData>($"{OriginDataDirectory}/BattleWaveEnemyData.asset");
+            masterData.BattleWaveEnemies = battleWaveEnemyData.battleWaveEnemies
+                .Select(x => x.ToBattleWaveEnemy())
+                .ToList();
+                
             var enemyData = AssetDatabase.LoadAssetAtPath<EnemyData>($"{OriginDataDirectory}/EnemyData.asset");
             masterData.Enemies = enemyData.enemies.Select(x => x.ToEnemy()).ToList();
             

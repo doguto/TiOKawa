@@ -8,6 +8,7 @@ namespace TiOKawa.Scripts.Infra.Schema
     {
         [PrimaryKey]
         public int Id { get; set; }
+        [SecondaryKey(1)]
         public int BattleId { get; set; }
         public float Period { get; set; }
         public int SpawnPerSecond { get; set; }
