@@ -17,7 +17,6 @@ namespace TiOKawa.Scripts.Infra.Origin
         [SerializeField] int id;
         [SerializeField] int battleId;
         [SerializeField] float period;
-        [SerializeField] int spawnPerSecond;
 
         public BattleWave ToBattleWave()
         {
@@ -26,7 +25,6 @@ namespace TiOKawa.Scripts.Infra.Origin
                 Id = id,
                 BattleId = battleId,
                 Period = period,
-                SpawnPerSecond = spawnPerSecond
             };
         }
     }

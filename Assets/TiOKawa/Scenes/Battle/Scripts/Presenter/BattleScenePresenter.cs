@@ -9,19 +9,17 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 {
     public class BattleScenePresenter : MonoPresenter
     {
-        [SerializeField] SimpleButton button;
-        
         BattleModel battleModel;
 
         protected override void Init()
         {
         }
 
-        protected override void SubscribeView()
+        protected override void SetupModel()
         {
-            button.OnClicked.Subscribe(Hoge);
+            // TODO: battleIDの取得処理
+            // 仮に battleId = 1
+            battleModel = new BattleModel(1);
         }
-        
-        void Hoge(Unit _){}
     }
 }
