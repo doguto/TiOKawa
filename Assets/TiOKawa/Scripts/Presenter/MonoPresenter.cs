@@ -10,6 +10,7 @@ namespace TiOKawa.Scripts.Presenter
             SetupModel();
             SetupView();
             SubscribeView();
+            AfterInit();
             
 #if UNITY_EDITOR
             Debug.Log($"Initialized {name}", this);
@@ -20,5 +21,6 @@ namespace TiOKawa.Scripts.Presenter
         protected virtual void SetupModel(){}
         protected virtual void SetupView(){}
         protected virtual void SubscribeView(){}
+        protected virtual void AfterInit(){}
     }
 }

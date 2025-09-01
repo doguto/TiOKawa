@@ -12,6 +12,8 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
         TiOKawa.Scripts.Infra.Schema.Battle battle;
         List<BattleWave> battleWaves;
         
+        int battleWaveIndex;
+ 
         public BattleModel(int battleId)
         {
             battle = GameDatabase.Master.BattleTable.FindById(battleId);
@@ -19,6 +21,21 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
                 .All
                 .Where(battleWave => battleWave.BattleId == battleId)
                 .ToList();
+            
+            battleWaveIndex = 0;
+        }
+
+        public BattleWaveModel GetCurrentWaveModel()
+        {
+            var id = battleWaves[battleWaveIndex].Id;
+            return new BattleWaveModel(id);
+        }
+
+        public BattleWaveModel GetNextWaveModel()
+        {
+            battleWaveIndex++;
+            var id = battleWaves[battleWaveIndex].Id;
+            return new BattleWaveModel(id);
         }
     }
 }
