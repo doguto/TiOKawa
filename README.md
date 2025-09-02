@@ -52,7 +52,9 @@ Assets/TiOKawa/
 - **UniRx**: リアクティブプログラミングとイベント処理のため
 - **UniTask**: UnityでのAsync/Awaitサポートのため
 
-## 貢献者
+## Contributors
 
 - **kuto** - プロジェクト作成者およびメイン開発者
+- **YuTakane256** - BGM機能の実装
+- **tytdroid** - タイトル画面の実装
 - **copilot-swe-agent[bot]** - 自動化による貢献
