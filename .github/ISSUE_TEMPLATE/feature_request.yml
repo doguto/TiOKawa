@@ -21,6 +21,18 @@ body:
       placeholder: この機能により何が解決されますか？
 
   - type: textarea
+    id: milestone
+    attributes:
+      label: マイルストーン
+      description: この機能実装に関連するタスクやマイルストーンがあれば記述してください
+      placeholder: |
+        * [ ] 要件定義の確認
+        * [ ] 設計書の作成
+        * [ ] 実装作業
+        * [ ] テストの実施
+        * [ ] ドキュメント更新
+      
+  - type: textarea
     id: additional
     attributes:
       label: 追加情報
