@@ -2,7 +2,7 @@ using TiOKawa.Scripts.View;
 using UnityEngine;
 
 namespace TiOKawa.Scenes.MinaTest.Scripts.View {
-    public class SoundView : MonoView
+    public class SEPlayerView : MonoView
     {
         [SerializeField] private AudioClip gatePassClip;
         [SerializeField] private AudioClip collisionClip;

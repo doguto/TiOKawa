@@ -5,9 +5,9 @@ using UnityEngine;
 
 
 namespace TiOKawa.Scenes.MinaTest.Scripts.Presenter {
-    public class SoundPresenter : MonoPresenter {
+    public class SEPlayerPresenter : MonoPresenter {
 
-        [SerializeField] SoundView soundView;
+        [SerializeField] SEPlayerView soundView;
 
     }
 }
