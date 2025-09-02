@@ -35,8 +35,6 @@ body:
       placeholder: |
         * [ ] バグの原因調査
         * [ ] 修正案の作成
-        * [ ] テストケースの実装
-        * [ ] レビューの実施
       
   - type: textarea
     id: additional
