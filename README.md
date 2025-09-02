@@ -44,7 +44,8 @@ Assets/TiOKawa/
 │       └── SimpleButton.cs
 └── Scenes/                     # シーン固有の実装
     ├── Battle/
-    └── Title/
+    ├── Title/
+    └── Sample/                 # MVPパターンのサンプル実装
 ```
 
 ### 依存関係
@@ -58,3 +59,21 @@ Assets/TiOKawa/
 - **YuTakane256** - BGM機能の実装
 - **tytdroid** - タイトル画面の実装
 - **copilot-swe-agent[bot]** - 自動化による貢献
+
+## サンプルシーン
+
+### Sample シーン
+
+`Assets/TiOKawa/Scenes/Sample/` には、MVPパターンを使用した基本的な実装サンプルが含まれています。
+
+#### 機能
+- ボタンクリックによるデータ表示のサンプル実装
+- UniRxを活用したリアクティブプログラミングの例示
+- MVP各層の責任分離の実践例
+
+#### 学習内容
+- Model-View-Presenterパターンの基本構造
+- UniRxを使ったイベント処理
+- TiOKawaフレームワークの基本的な使用方法
+
+詳細な解説は [Docs/SampleFlow.md](Docs/SampleFlow.md) を参照してください。
