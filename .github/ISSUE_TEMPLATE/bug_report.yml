@@ -28,6 +28,15 @@ body:
       placeholder: 可能であれば修正するための方法を記述してください
 
   - type: textarea
+    id: milestone
+    attributes:
+      label: マイルストーン
+      description: このバグ修正に関連するタスクやマイルストーンがあれば記述してください
+      placeholder: |
+        * [ ] バグの原因調査
+        * [ ] 修正案の作成
+      
+  - type: textarea
     id: additional
     attributes:
       label: 追加情報

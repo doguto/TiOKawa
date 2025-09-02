@@ -28,6 +28,15 @@ body:
       placeholder: 他のコードやテストに与える影響があれば記述してください
 
   - type: textarea
+    id: milestone
+    attributes:
+      label: マイルストーン
+      description: このリファクタリング作業に関連するタスクやマイルストーンがあれば記述してください
+      placeholder: |
+        * [ ] リファクタリング計画の作成
+        * [ ] コードレビュー
+      
+  - type: textarea
     id: additional
     attributes:
       label: 追加情報
