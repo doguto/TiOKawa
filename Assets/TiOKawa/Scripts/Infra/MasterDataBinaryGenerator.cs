@@ -9,6 +9,10 @@
             
             // MasterDataの追加に伴い、ここにAppendしていく
             databaseBuilder.Append(data.Tests);
+            databaseBuilder.Append(data.Battles);
+            databaseBuilder.Append(data.BattleWaves);
+            databaseBuilder.Append(data.BattleWaveEnemies);
+            databaseBuilder.Append(data.Enemies);
             
             WriteBinary(databaseBuilder);
         }

@@ -8,7 +8,7 @@ namespace TiOKawa.Scripts.Repository
 {
     public static class GameDatabase
     {
-        const string BinaryDirectoryPath = "Assets/Project/DataStore/Binary";
+        const string BinaryDirectoryPath = "Assets/TiOKawa/DataStore/Binary";
 
         const string MasterDataBinaryName = "MasterData.bytes";
 
