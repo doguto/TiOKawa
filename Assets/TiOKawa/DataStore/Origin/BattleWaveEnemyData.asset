@@ -16,16 +16,16 @@ MonoBehaviour:
   - id: 1
     battleWaveId: 1
     enemyId: 1
-    amount: 50
+    amount: 5
   - id: 2
     battleWaveId: 2
     enemyId: 1
-    amount: 5
+    amount: 8
   - id: 3
-    battleWaveId: 2
+    battleWaveId: 3
     enemyId: 2
-    amount: 10
+    amount: 5
   - id: 4
     battleWaveId: 3
     enemyId: 1
-    amount: 10
+    amount: 5

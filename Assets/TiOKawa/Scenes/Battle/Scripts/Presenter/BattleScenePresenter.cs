@@ -64,7 +64,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             Instantiate(
                 obj.prefab,
                 new Vector3(0, 1.1f, battleModel.SpawnPointZPosition),
-                Quaternion.identity
+                new Quaternion(0, 1, 0, 0)
             );
         }
     }
