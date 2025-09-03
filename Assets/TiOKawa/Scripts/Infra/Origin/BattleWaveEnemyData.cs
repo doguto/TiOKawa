@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TiOKawa.Scripts.Infra.Schema;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TiOKawa.Scripts.Infra.Origin
 {
@@ -18,6 +19,7 @@ namespace TiOKawa.Scripts.Infra.Origin
         [SerializeField] int battleWaveId;
         [SerializeField] int enemyId;
         [SerializeField] int amount;
+        [SerializeField] string spawnTypeName;
 
         public BattleWaveEnemy ToBattleWaveEnemy()
         {
@@ -26,7 +28,8 @@ namespace TiOKawa.Scripts.Infra.Origin
                 Id = id,
                 BattleWaveId = battleWaveId,
                 EnemyId = enemyId,
-                Amount = amount
+                Amount = amount,
+                SpawnTypeName = spawnTypeName,
             };
         }
     }

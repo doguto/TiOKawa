@@ -15,7 +15,9 @@ MonoBehaviour:
   enemies:
   - id: 1
     hp: 1
-    address: Assets/TiOKawa/Textures/Prefabs/SlimePBR.prefab
+    speed: 10
+    address: Assets/TiOKawa/Prefabs/Enemy/SlimePBR.prefab
   - id: 2
     hp: 3
-    address: Assets/TiOKawa/Textures/Prefabs/TurtleShellPBR.prefab
+    speed: 8
+    address: Assets/TiOKawa/Prefabs/Enemy/TurtleShellPBR.prefab
