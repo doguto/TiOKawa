@@ -16,10 +16,16 @@ namespace TiOKawa.Scripts.Infra.Origin
     {
         [SerializeField] int id;
         [SerializeField] int hp;
+        [SerializeField] string address;
 
         public Enemy ToEnemy()
         {
-            return new Enemy(){Id = id, Hp = hp};
+            return new Enemy()
+            {
+                Id = id,
+                Hp = hp,
+                Address = address
+            };
         }
     }
 }
