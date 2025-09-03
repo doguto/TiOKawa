@@ -15,10 +15,15 @@ namespace TiOKawa.Scripts.Infra.Origin
     public class ScriptableBattle
     {
         [SerializeField] int id;
+        [SerializeField] int spawnPointZPosition = 130;
 
         public Battle ToBattle()
         {
-            return new Battle() { Id = id };
+            return new Battle()
+            {
+                Id = id,
+                SpawnPointZPosition = spawnPointZPosition
+            };
         }
     }
 }
