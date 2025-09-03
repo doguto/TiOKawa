@@ -13,11 +13,13 @@ namespace TiOKawa.Scripts.Repository
         const string MasterDataBinaryName = "MasterData.bytes";
 
         public static MemoryDatabase Master { get; private set; }
-        
+
+        public static TemporaryData Temporary { get; private set; }
+
         static GameDatabase()
         {
             var masterDataBinaryPath = $"{BinaryDirectoryPath}/{MasterDataBinaryName}";
-            
+
             // MessagePackの初期化
             var messagePackResolvers = CompositeResolver.Create(
                 MasterMemoryResolver.Instance,
