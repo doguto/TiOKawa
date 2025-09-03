@@ -22,7 +22,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
         public BattleModel(int battleId)
         {
             battle = GameDatabase.Master.BattleTable.FindById(battleId);
-            battleStage = GameDatabase.Master.BattleStageTable.FindByBattleId(battleId);
+            battleStage = GameDatabase.Master.BattleStageTable.FindById(battle.BattleStageId);
             battleWaves = GameDatabase.Master.BattleWaveTable
                 .All
                 .Where(battleWave => battleWave.BattleId == battleId)

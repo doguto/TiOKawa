@@ -15,7 +15,6 @@ namespace TiOKawa.Scripts.Infra.Origin
     public class ScriptableBattleStage
     {
         [SerializeField] int id;
-        [SerializeField] int battleId;
         [SerializeField] float width;
         [SerializeField] float spawnPositionZ;
 
@@ -24,7 +23,6 @@ namespace TiOKawa.Scripts.Infra.Origin
             return new BattleStage()
             {
                 Id = id,
-                BattleId = battleId,
                 Width = width,
                 SpawnPositionZ = spawnPositionZ
             };
