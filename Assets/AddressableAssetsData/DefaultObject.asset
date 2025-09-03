@@ -9,16 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29eeb85360cc4a769c2af950651fe2ae, type: 3}
-  m_Name: BattleWaveData
+  m_Script: {fileID: 11500000, guid: 3a189bb168d8d90478a09ea08c2f3d72, type: 3}
+  m_Name: DefaultObject
   m_EditorClassIdentifier: 
-  battleWaves:
-  - id: 1
-    battleId: 1
-    period: 10
-  - id: 2
-    battleId: 1
-    period: 5
-  - id: 3
-    battleId: 1
-    period: 3
+  m_AddressableAssetSettingsGuid: 2143c858bf8aa82459a720f6bb933984

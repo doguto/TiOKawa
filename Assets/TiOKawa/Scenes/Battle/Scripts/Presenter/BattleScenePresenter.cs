@@ -23,24 +23,44 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             currentWaveEnemyModels = currentWaveModel.GetWaveEnemyModels();
         }
 
+        protected override void AfterInit()
+        {
+            UpdateWave();
+            Debug.Log("Setting Subscriber");
+        }
+
         void UpdateWave()
         {
-            currentWaveModel = battleModel.GetNextWaveModel();
+            if (battleModel.IsLastWave)
+            {
+                Debug.Log("Finished This Battle!!!!!", this);
+                return;
+            }
+
+            currentWaveModel = battleModel.GetCurrentWaveModel();
             currentWaveEnemyModels = currentWaveModel.GetWaveEnemyModels();
-            
+
+            battleModel.PrepareNextWave();
+
             Observable.Timer(TimeSpan.FromSeconds(currentWaveModel.Period))
                 .Subscribe(_ => UpdateWave())
                 .AddTo(this);
-            
+
             foreach (var waveEnemyModel in currentWaveEnemyModels)
             {
-                Observable.Timer(TimeSpan.FromSeconds(currentWaveModel.Period / waveEnemyModel.Amount));
+                waveEnemyModel.OnSpawnCalled.Subscribe(SpawnEnemy);
+
+                //  Waveが切り替わった後にスポーンしないように、waveEnemyModel.Amount + 1
+                Observable.Interval(TimeSpan.FromSeconds(currentWaveModel.Period / (waveEnemyModel.Amount + 1)))
+                    .Take(waveEnemyModel.Amount)
+                    .Subscribe(_ => waveEnemyModel.Spawn())
+                    .AddTo(this);
             }
         }
 
-        void SpawnEnemyEachTime()
+        void SpawnEnemy(int id)
         {
-            
+            Debug.Log($"EnemySpawn: {id}");
         }
     }
 }

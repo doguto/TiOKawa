@@ -2,6 +2,7 @@
 using System.Linq;
 using TiOKawa.Scripts.Infra.Schema;
 using TiOKawa.Scripts.Repository;
+using UnityEngine;
 
 namespace TiOKawa.Scenes.Battle.Scripts.Model
 {
@@ -11,8 +12,9 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
         // TODO: 冗長でない宣言に変更
         TiOKawa.Scripts.Infra.Schema.Battle battle;
         List<BattleWave> battleWaves;
-        
+
         int battleWaveIndex;
+        public bool IsLastWave { get; private set; }
  
         public BattleModel(int battleId)
         {
@@ -31,9 +33,20 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
             return new BattleWaveModel(id);
         }
 
+        public void PrepareNextWave()
+        {
+            battleWaveIndex++;
+            IsLastWave = battleWaveIndex >= battleWaves.Count;
+        }
+
         public BattleWaveModel GetNextWaveModel()
         {
             battleWaveIndex++;
+            if (battleWaveIndex >= battleWaves.Count)
+            {
+                Debug.LogWarning("Nooooo");
+            }
+            
             var id = battleWaves[battleWaveIndex].Id;
             return new BattleWaveModel(id);
         }

@@ -9,16 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29eeb85360cc4a769c2af950651fe2ae, type: 3}
-  m_Name: BattleWaveData
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Default Local Group_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  battleWaves:
-  - id: 1
-    battleId: 1
-    period: 10
-  - id: 2
-    battleId: 1
-    period: 5
-  - id: 3
-    battleId: 1
-    period: 3
+  m_Group: {fileID: 11400000, guid: 6b46c45004f150343b758d82f05bedd0, type: 2}
+  m_StaticContent: 0

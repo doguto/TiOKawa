@@ -10,6 +10,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
     {
         BattleWave battleWave;
         
+        public int BttleWaveId => battleWave.Id; 
         public float Period => battleWave.Period;
 
         public BattleWaveModel(int battleWaveId)
