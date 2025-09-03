@@ -6,17 +6,21 @@ namespace TiOKawa.Scripts.Presenter
     {
         protected virtual void Awake()
         {
+            Init();
             SetupModel();
             SetupView();
             SubscribeView();
+            AfterInit();
             
 #if UNITY_EDITOR
             Debug.Log($"Initialized {name}", this);
 #endif
         }
 
+        protected virtual void Init(){}
         protected virtual void SetupModel(){}
         protected virtual void SetupView(){}
         protected virtual void SubscribeView(){}
+        protected virtual void AfterInit(){}
     }
 }
