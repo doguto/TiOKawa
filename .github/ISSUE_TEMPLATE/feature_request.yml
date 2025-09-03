@@ -1,0 +1,37 @@
+name: 🚀 Feature Request
+description: 新機能の提案
+title: "[FEATURE] "
+labels: ["enhancement", "feature"]
+assignees: []
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 機能概要
+      description: 提案する機能の概要を記述してください
+      placeholder: どのような機能を追加したいですか？
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 動機・背景
+      description: なぜこの機能が必要なのか説明してください
+      placeholder: この機能により何が解決されますか？
+
+  - type: textarea
+    id: milestone
+    attributes:
+      label: マイルストーン
+      description: この機能実装に関連するタスクやマイルストーンがあれば記述してください
+      placeholder: |
+        * [ ] 設計書の作成
+        * [ ] 実装作業
+      
+  - type: textarea
+    id: additional
+    attributes:
+      label: 追加情報
+      description: その他、関連する情報があれば記述してください
+      placeholder: 参考資料、類似機能の例など
