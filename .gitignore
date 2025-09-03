@@ -101,3 +101,6 @@ InitTestScene*.unity*
 # Editor Settings
 /.vscode/
 /.idea/
+
+# vsconfig
+.vsconfig
