@@ -11,14 +11,18 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
         // Sceneの名前空間と名前が被っているため例外的に冗長な型記述になっている
         // TODO: 冗長でない宣言に変更
         TiOKawa.Scripts.Infra.Schema.Battle battle;
+        BattleStage battleStage;
         List<BattleWave> battleWaves;
 
         int battleWaveIndex;
         public bool IsLastWave { get; private set; }
- 
+        public float SpawnableStageWidth => battleStage.Width * 0.8f;
+        public float SpawnPointZPosition => battleStage.SpawnPositionZ;
+
         public BattleModel(int battleId)
         {
             battle = GameDatabase.Master.BattleTable.FindById(battleId);
+            battleStage = GameDatabase.Master.BattleStageTable.FindByBattleId(battleId);
             battleWaves = GameDatabase.Master.BattleWaveTable
                 .All
                 .Where(battleWave => battleWave.BattleId == battleId)

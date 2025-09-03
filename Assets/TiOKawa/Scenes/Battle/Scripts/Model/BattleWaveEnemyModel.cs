@@ -2,27 +2,31 @@
 using TiOKawa.Scripts.Infra.Schema;
 using TiOKawa.Scripts.Repository;
 using UniRx;
+using UnityEngine;
 
 namespace TiOKawa.Scenes.Battle.Scripts.Model
 {
     public class BattleWaveEnemyModel
     {
         BattleWaveEnemy battleWaveEnemy;
-        
-        
-        readonly Subject<int> onSpawnCalled = new();
-        public IObservable<int> OnSpawnCalled => onSpawnCalled;
-        
+
+        EnemyModel enemyModel;
+
+        readonly Subject<(SpawnType, GameObject)> onSpawnCalled = new();
+        public IObservable<(SpawnType, GameObject)> OnSpawnCalled => onSpawnCalled;
+
         public int Amount => battleWaveEnemy.Amount;
-        
+        public SpawnType SpawnType => battleWaveEnemy.SpawnTypeName.ToSpawnType();
+
         public BattleWaveEnemyModel(int battleWaveEnemyId)
         {
             battleWaveEnemy = GameDatabase.Master.BattleWaveEnemyTable.FindById(battleWaveEnemyId);
+            enemyModel = new(battleWaveEnemy.EnemyId);
         }
 
         public void Spawn()
         {
-            onSpawnCalled.OnNext(battleWaveEnemy.Id);
+            onSpawnCalled.OnNext((SpawnType, enemyModel.Prefab));
         }
     }
 }

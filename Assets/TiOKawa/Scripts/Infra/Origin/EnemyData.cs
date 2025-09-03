@@ -16,6 +16,7 @@ namespace TiOKawa.Scripts.Infra.Origin
     {
         [SerializeField] int id;
         [SerializeField] int hp;
+        [SerializeField] float speed;
         [SerializeField] string address;
 
         public Enemy ToEnemy()
@@ -24,6 +25,7 @@ namespace TiOKawa.Scripts.Infra.Origin
             {
                 Id = id,
                 Hp = hp,
+                Speed = speed,
                 Address = address
             };
         }

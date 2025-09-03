@@ -5,6 +5,7 @@ using TiOKawa.Scripts.Presenter;
 using TiOKawa.Scripts.View;
 using UniRx;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 {
@@ -58,9 +59,25 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             }
         }
 
-        void SpawnEnemy(int id)
+        void SpawnEnemy((SpawnType spawnType, GameObject prefab)obj)
         {
-            Debug.Log($"EnemySpawn: {id}");
+            var stageWidth = battleModel.SpawnableStageWidth;
+            var spawnPositionX = obj.spawnType switch
+            {
+                SpawnType.AllRandom => Random.Range(-stageWidth, stageWidth),
+                SpawnType.LeftRandom => Random.Range(-stageWidth, 0),
+                SpawnType.RightRandom => Random.Range(0, stageWidth),
+                SpawnType.Left => -stageWidth,
+                SpawnType.Right => stageWidth,
+                SpawnType.Center => 0,
+                _ => Random.Range(-stageWidth, stageWidth)
+            };
+
+            Instantiate(
+                obj.prefab,
+                new Vector3(spawnPositionX, 1.1f, battleModel.SpawnPointZPosition),
+                new Quaternion(0, 1, 0, 0)
+            );
         }
     }
 }

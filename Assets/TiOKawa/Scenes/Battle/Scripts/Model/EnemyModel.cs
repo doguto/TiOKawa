@@ -8,16 +8,12 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
     public class EnemyModel
     {
         readonly Enemy enemy;
+        public GameObject Prefab { get; private set; }
 
         public EnemyModel(int id)
         {
             enemy = GameDatabase.Master.EnemyTable.FindById(id);
-        }
-
-        public GameObject LoadPrefab()
-        {
-            var prefab = Addressables.LoadAssetAsync<GameObject>(enemy.Address).WaitForCompletion();
-            return prefab;
+            Prefab = Addressables.LoadAssetAsync<GameObject>(enemy.Address).WaitForCompletion();
         }
     }
 }

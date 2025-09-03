@@ -9,6 +9,7 @@ namespace TiOKawa.Scripts.Infra.Schema
         [PrimaryKey]
         public int Id { get; set; }
         public int Hp { get; set; }
+        public float Speed { get; set; }
         public string Address { get; set; }
     }
 }

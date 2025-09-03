@@ -13,5 +13,6 @@ namespace TiOKawa.Scripts.Infra.Schema
         [SecondaryKey(2)]
         public int EnemyId { get; set; }
         public int Amount { get; set; }
+        public string SpawnTypeName { get; set; }
     }
 }
