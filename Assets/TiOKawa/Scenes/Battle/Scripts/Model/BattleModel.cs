@@ -15,6 +15,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
 
         int battleWaveIndex;
         public bool IsLastWave { get; private set; }
+        public float SpawnPointZPosition => battle.SpawnPointZPosition;
  
         public BattleModel(int battleId)
         {

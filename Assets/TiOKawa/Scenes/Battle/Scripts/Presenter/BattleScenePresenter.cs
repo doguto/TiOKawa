@@ -58,9 +58,14 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             }
         }
 
-        void SpawnEnemy(int id)
+        void SpawnEnemy((int id, GameObject prefab)obj)
         {
-            Debug.Log($"EnemySpawn: {id}");
+            Debug.Log($"EnemySpawn: {obj.id}");
+            Instantiate(
+                obj.prefab,
+                new Vector3(0, 1.1f, battleModel.SpawnPointZPosition),
+                Quaternion.identity
+            );
         }
     }
 }
