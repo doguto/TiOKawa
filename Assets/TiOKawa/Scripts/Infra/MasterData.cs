@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TiOKawa.Scripts.Infra.Origin;
 using TiOKawa.Scripts.Infra.Schema;
 
 namespace TiOKawa.Scripts.Infra
@@ -10,6 +11,7 @@ namespace TiOKawa.Scripts.Infra
         public List<BattleStage> BattleStages { get; set; }
         public List<BattleWave> BattleWaves { get; set; }
         public List<BattleWaveEnemy> BattleWaveEnemies { get; set; }
+        public List<BattleWaveGate> BattleWaveGates { get; set; }
         public List<Enemy> Enemies { get; set; }
     }
 }
