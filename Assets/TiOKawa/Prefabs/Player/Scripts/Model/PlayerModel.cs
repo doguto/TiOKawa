@@ -2,6 +2,7 @@
 {
     public class PlayerModel
     {
-        
+        public float YPosition => 1;
+        public float ZPosition => -60;
     }
 }

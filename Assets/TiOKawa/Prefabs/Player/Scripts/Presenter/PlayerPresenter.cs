@@ -13,7 +13,7 @@ namespace TiOKawa.Prefabs.Player.Scripts.Presenter
 
         public void SetPosition(float x)
         {
-            
+            playerMinionView.MoveTo(new Vector3(x, playerModel.YPosition, playerModel.ZPosition));
         }
     }
 }

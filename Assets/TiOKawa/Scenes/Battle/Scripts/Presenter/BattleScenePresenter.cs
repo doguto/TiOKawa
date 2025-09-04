@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TiOKawa.Prefabs.Player.Scripts.Presenter;
 using TiOKawa.Scenes.Battle.Scripts.Model;
 using TiOKawa.Scripts.Presenter;
 using TiOKawa.Scripts.View;
@@ -11,6 +12,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 {
     public class BattleScenePresenter : MonoPresenter
     {
+        [SerializeField] PlayerPresenter playerPresenter;
         [SerializeField] DraggableArea playerControlArea;
 
         BattleModel battleModel;
@@ -28,7 +30,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
         protected override void SubscribeView()
         {
-            playerControlArea.OnDragged.Subscribe();
+            playerControlArea.OnDragged.Subscribe(UpdatePlayerPosition);
         }
 
         protected override void AfterInit()
@@ -89,7 +91,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
         void UpdatePlayerPosition(Vector2 position)
         {
-            
+            // 二次元を三次元に変換するときに指の動きとずれるので、係数で調整している
+            // TODO: FIXME
+            var coef = 8f;
+            var worldX = (position.x - playerControlArea.CenterXPosition) * coef / playerControlArea.HalfSize;
+            playerPresenter.SetPosition(worldX);
         }
     }
 }
