@@ -43,16 +43,10 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
             IsLastWave = battleWaveIndex >= battleWaves.Count;
         }
 
-        public BattleWaveModel GetNextWaveModel()
+        public void SaveResult()
         {
-            battleWaveIndex++;
-            if (battleWaveIndex >= battleWaves.Count)
-            {
-                Debug.LogWarning("Nooooo");
-            }
-            
-            var id = battleWaves[battleWaveIndex].Id;
-            return new BattleWaveModel(id);
+            // TODO: mockなので真データを保存する
+            GameDatabase.Temporary.BattleResult = new BattleResult(13, 1, 13, 3);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using TiOKawa.Prefabs.Enemy.Scripts.Presenter;
 using TiOKawa.Prefabs.Enemy.Scripts.View;
 using TiOKawa.Prefabs.Gate.Scripts.Presenter;
@@ -10,6 +11,7 @@ using TiOKawa.Scripts.Presenter;
 using TiOKawa.Scripts.View;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace TiOKawa.Scenes.Battle.Scripts.Presenter
@@ -25,6 +27,8 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
         BattleWaveModel currentWaveModel;
         List<BattleWaveEnemyModel> currentWaveEnemyModels;
         BattleWaveGateModel currentBattleWaveGateModel;
+
+        bool isFinGame = false;
 
         protected override void SetupModel()
         {
@@ -47,11 +51,25 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             UpdateWave();
         }
 
+        void Update()
+        {
+            var isLose = playerPresenter.PlayerCount == 0;
+
+            if (!isFinGame && !isLose) return;
+
+            Debug.Log("Finished This Battle!!!!!", this);
+
+            battleModel.SaveResult();
+            SceneManager.LoadScene("Result");
+        }
+
         void UpdateWave()
         {
             if (battleModel.IsLastWave)
             {
-                Debug.Log("Finished This Battle!!!!!", this);
+                Observable.Timer(TimeSpan.FromSeconds(currentWaveModel.Period))
+                    .Subscribe(_ => FinGame())
+                    .AddTo(this);
                 return;
             }
 
@@ -86,6 +104,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
                 Quaternion.identity
             );
             createdPresenter.Setup(currentBattleWaveGateModel.IncrementalAmount, playerPresenter);
+        }
+
+        void FinGame()
+        {
+            isFinGame = true;
         }
 
         void SpawnEnemy((SpawnType spawnType, int id)obj)

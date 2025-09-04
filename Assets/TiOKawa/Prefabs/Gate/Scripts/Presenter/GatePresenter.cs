@@ -17,11 +17,12 @@ namespace TiOKawa.Prefabs.Gate.Scripts.Presenter
 
         void Update()
         {
-            if (playerPresenter.IsInPlayerCircle(gateView.transform.position))
-            {
-                playerPresenter.SpawnPlayers(incrementalAmount);
-                Destroy(this.gameObject);
-            }
+            var x = gateView.transform.position.x;
+            var z = gateView.transform.position.z;
+            if (!playerPresenter.IsInPlayerCircle(x - 2.5f, x + 2.5f, z)) return;
+
+            playerPresenter.SpawnPlayers(incrementalAmount);
+            Destroy(gameObject);
         }
 
         public void Setup(int incrementalAmount, PlayerPresenter playerPresenter)
