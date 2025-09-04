@@ -27,7 +27,13 @@ namespace TiOKawa.Scripts.Infra
             masterData.BattleWaveEnemies = battleWaveEnemyData.battleWaveEnemies
                 .Select(x => x.ToBattleWaveEnemy())
                 .ToList();
-                
+
+            var battleWaveGateData =
+                AssetDatabase.LoadAssetAtPath<BattleWaveGateData>($"{OriginDataDirectory}/BattleWaveGateData.asset");
+            masterData.BattleWaveGates = battleWaveGateData.battleWaveGates
+                .Select(x => x.ToBattleWaveGateData())
+                .ToList();
+
             var enemyData = AssetDatabase.LoadAssetAtPath<EnemyData>($"{OriginDataDirectory}/EnemyData.asset");
             masterData.Enemies = enemyData.enemies.Select(x => x.ToEnemy()).ToList();
             

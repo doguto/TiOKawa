@@ -13,6 +13,7 @@
             databaseBuilder.Append(data.BattleStages);
             databaseBuilder.Append(data.BattleWaves);
             databaseBuilder.Append(data.BattleWaveEnemies);
+            databaseBuilder.Append(data.BattleWaveGates);
             databaseBuilder.Append(data.Enemies);
             
             WriteBinary(databaseBuilder);

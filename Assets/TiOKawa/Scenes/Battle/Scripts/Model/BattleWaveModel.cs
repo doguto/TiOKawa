@@ -9,8 +9,8 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
     public class BattleWaveModel
     {
         BattleWave battleWave;
-        
-        public int BttleWaveId => battleWave.Id; 
+
+        public int BattleWaveId => battleWave.Id; 
         public float Period => battleWave.Period;
 
         public BattleWaveModel(int battleWaveId)
@@ -26,6 +26,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
                 .Select(x => x.Id)
                 .ToList();
             return ids.Select(id => new BattleWaveEnemyModel(id)).ToList();
+        }
+
+        public BattleWaveGateModel GetGateModel()
+        {
+            return new BattleWaveGateModel(battleWave.Id);
         }
     }
 }

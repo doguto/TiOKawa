@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36226b82f2a14bad9128c3543853213b, type: 3}
-  m_Name: BattleStageData
+  m_Script: {fileID: 11500000, guid: 03a20bc54af34cc1b7d4b314d9dfdda9, type: 3}
+  m_Name: BattleWaveGateData
   m_EditorClassIdentifier: 
-  battleStages:
+  battleWaveGates:
   - id: 1
-    width: 10
-    spawnPositionZ: 45
+    battleWaveId: 2
+    incrementalAmount: 10
+  - id: 1
+    battleWaveId: 1
+    incrementalAmount: 5

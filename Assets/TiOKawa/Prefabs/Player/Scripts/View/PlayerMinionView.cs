@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TiOKawa.Scripts.View;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TiOKawa.Prefabs.Player.Scripts.View
 {
@@ -18,7 +19,7 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
         [SerializeField] int unitsPerRing = 8; // 1つのリングに配置するユニット数
         [SerializeField] float randomOffset = 0.1f; // ランダムな位置オフセット
 
-        float currentMaxRadius;
+        public float CurrentMaxRadius { get; private set; }
 
         void Awake()
         {
@@ -27,7 +28,7 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
 
         public void MoveTo(Vector3 targetPosition)
         {
-            targetPosition.x = Mathf.Clamp(targetPosition.x, -currentMaxRadius, currentMaxRadius);
+            targetPosition.x = Mathf.Clamp(targetPosition.x, -20 + CurrentMaxRadius, 20 - CurrentMaxRadius);
             myTransform.position = targetPosition;
         }
 
@@ -76,7 +77,7 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
             float radius = unitSpacing * ring;
             radius = Mathf.Min(radius, formationRadius);
 
-            currentMaxRadius = Mathf.Max(radius, currentMaxRadius);
+            CurrentMaxRadius = Mathf.Max(radius, CurrentMaxRadius);
 
             // 角度を計算（均等配置）
             float angleStep = 360f / unitsInCurrentRing;
