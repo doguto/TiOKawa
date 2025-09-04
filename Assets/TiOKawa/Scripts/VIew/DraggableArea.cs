@@ -8,6 +8,8 @@ namespace TiOKawa.Scripts.View
     [DisallowMultipleComponent]
     public class DraggableArea : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
+        [SerializeField] RectTransform rectTransform;
+
         readonly Subject<Vector2> onDragged = new();
         readonly Subject<Vector2> onDragStart = new();
         readonly Subject<Vector2> onDragEnd = new();
@@ -15,8 +17,10 @@ namespace TiOKawa.Scripts.View
         public IObservable<Vector2> OnDragged => onDragged;
         public IObservable<Vector2> OnDragStart => onDragStart;
         public IObservable<Vector2> OnDragEnd => onDragEnd;
-        
+
         public bool IsActive { get; private set; } = true;
+        public float CenterXPosition => transform.position.x;
+        public float HalfSize => rectTransform.sizeDelta.x / 2f;
 
         public void SetActive(bool active)
         {
