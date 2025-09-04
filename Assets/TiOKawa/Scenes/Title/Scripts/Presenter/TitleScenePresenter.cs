@@ -33,7 +33,7 @@ namespace TiOKawa.Scenes.Title.Scripts.Presenter
         {
             sePlayerView.PlayStartSound();
             yield return new WaitForSeconds(0.5f);
-            SceneManager.LoadScene("Battle");
+            SceneManager.LoadScene("StageSelect");
         }
 
         void OnSettingsButtonClicked()

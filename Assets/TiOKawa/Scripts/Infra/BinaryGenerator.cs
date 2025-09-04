@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+
+using System.IO;
 using MasterMemory;
 using MessagePack;
 using MessagePack.Resolvers;
@@ -37,3 +39,5 @@ namespace TiOKawa.Scripts.Infra
         }
     }
 }
+
+#endif

@@ -1,4 +1,6 @@
-﻿namespace TiOKawa.Scripts.Infra
+﻿#if UNITY_EDITOR
+
+namespace TiOKawa.Scripts.Infra
 {
     public class MasterDataBinaryGenerator : BinaryGenerator<MasterData>
     {
@@ -20,3 +22,4 @@
         }
     }
 }
+#endif

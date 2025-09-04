@@ -14,10 +14,10 @@ namespace TiOKawa.Scenes.SelectStage.Scripts.Presenter
 
         private Dictionary<int, int> stageMapping = new Dictionary<int, int>()
         {
+            { 0, 1 },
             { 1, 1 },
             { 2, 1 },
             { 3, 1 },
-            { 4, 1 },
         };
         private void Start()
         {

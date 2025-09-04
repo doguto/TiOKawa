@@ -15,7 +15,10 @@ MonoBehaviour:
   battleWaveGates:
   - id: 1
     battleWaveId: 2
-    incrementalAmount: 10
+    incrementalAmount: 15
   - id: 1
     battleWaveId: 1
-    incrementalAmount: 5
+    incrementalAmount: 8
+  - id: 1
+    battleWaveId: 3
+    incrementalAmount: 10
