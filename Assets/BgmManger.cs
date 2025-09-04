@@ -6,14 +6,16 @@ using UnityEngine;
 public class BgmManger : MonoBehaviour
 {
     [SerializeField] AudioSource bgm;
-
     [SerializeField] List<AudioClip> audioClips;
-    // Start is called before the first frame update
+    
+    private float masterVolume = 1.0f;
+    private float bgmVolume = 1.0f;
+
     void Start()
     {
+        LoadVolumeSettings();
+        ApplyVolumeSettings();
         StartBgm();
-
-
     }
     //bgmを鳴らす処理 最初流す
     public void StartBgm()
@@ -37,5 +39,25 @@ public class BgmManger : MonoBehaviour
         bgm.Play();
     }
 
+    void LoadVolumeSettings()
+    {
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
+        bgmVolume = PlayerPrefs.GetFloat("BgmVolume", 1.0f);
+    }
 
+    void ApplyVolumeSettings()
+    {
+        bgm.volume = masterVolume * bgmVolume;
+    }
+
+    public void UpdateVolumeSettings()
+    {
+        LoadVolumeSettings();
+        ApplyVolumeSettings();
+    }
+
+    void OnEnable()
+    {
+        UpdateVolumeSettings();
+    }
 }

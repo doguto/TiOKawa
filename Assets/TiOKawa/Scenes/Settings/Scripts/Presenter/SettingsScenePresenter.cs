@@ -46,18 +46,27 @@ namespace TiOKawa.Scenes.Settings.Scripts.Presenter
         {
             PlayerPrefs.SetFloat("MasterVolume", volume);
             PlayerPrefs.Save();
+            
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
         void OnSfxVolumeChanged(float volume)
         {
             PlayerPrefs.SetFloat("SfxVolume", volume);
             PlayerPrefs.Save();
+            
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
         void OnBgmVolumeChanged(float volume)
         {
             PlayerPrefs.SetFloat("BgmVolume", volume);
             PlayerPrefs.Save();
+            
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
         void LoadSettings()
