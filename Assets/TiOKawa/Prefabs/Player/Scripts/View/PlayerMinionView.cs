@@ -55,6 +55,14 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
             }
         }
 
+        public void DestroyPlayers(int count)
+        {
+            var deletePlayers = players.GetRange(players.Count - count, count);
+            players.RemoveRange(players.Count - count, count);
+            deletePlayers.ForEach(player => Destroy(player.gameObject));
+            CurrentMaxRadius -= unitSpacing * count / (float)unitsPerRing;
+        }
+
         /// <summary>
         /// 軍団配置の位置を計算
         /// </summary>

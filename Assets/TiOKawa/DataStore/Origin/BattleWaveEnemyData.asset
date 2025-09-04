@@ -16,20 +16,20 @@ MonoBehaviour:
   - id: 1
     battleWaveId: 1
     enemyId: 1
-    amount: 5
+    amount: 3
     spawnTypeName: AllRandom
   - id: 2
     battleWaveId: 2
     enemyId: 1
-    amount: 8
+    amount: 3
     spawnTypeName: AllRandom
   - id: 3
     battleWaveId: 3
     enemyId: 2
-    amount: 5
+    amount: 2
     spawnTypeName: AllRandom
   - id: 4
     battleWaveId: 3
     enemyId: 1
-    amount: 5
+    amount: 6
     spawnTypeName: AllRandom

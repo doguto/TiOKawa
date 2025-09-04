@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 4047972025199878}
   - component: {fileID: 95457531584545886}
   - component: {fileID: -4889532629882893974}
+  - component: {fileID: 1401548362385946438}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: Untagged
@@ -482,3 +483,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0caf9c3459a446328b6cb4d316258b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1401548362385946438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931298151966786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e543d9cbc83e4ad9a39a28836561d4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyView: {fileID: -4889532629882893974}

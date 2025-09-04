@@ -12,8 +12,8 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
 
         EnemyModel enemyModel;
 
-        readonly Subject<(SpawnType, GameObject)> onSpawnCalled = new();
-        public IObservable<(SpawnType, GameObject)> OnSpawnCalled => onSpawnCalled;
+        readonly Subject<(SpawnType, int)> onSpawnCalled = new();
+        public IObservable<(SpawnType, int)> OnSpawnCalled => onSpawnCalled;
 
         public int Amount => battleWaveEnemy.Amount;
         public SpawnType SpawnType => battleWaveEnemy.SpawnTypeName.ToSpawnType();
@@ -26,7 +26,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
 
         public void Spawn()
         {
-            onSpawnCalled.OnNext((SpawnType, enemyModel.Prefab));
+            onSpawnCalled.OnNext((SpawnType, enemyModel.Id));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace TiOKawa.Prefabs.Enemy.Scripts.View
 
         void Start()
         {
-            MoveTo(-100, 100);
+            MoveTo(-100, 60);
         }
 
         public void MoveTo(float moveValue, float time)

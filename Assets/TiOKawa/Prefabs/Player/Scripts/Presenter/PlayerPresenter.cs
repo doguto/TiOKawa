@@ -17,6 +17,8 @@ namespace TiOKawa.Prefabs.Player.Scripts.Presenter
         public void SpawnPlayer() => playerMinionView.SpawnPlayer();
         public void SpawnPlayers(int count) => playerMinionView.SpawnPlayers(count);
 
+        public void DestroyPlayers(int count) => playerMinionView.DestroyPlayers(count);
+        
         public void SetPosition(float x)
         {
             playerMinionView.MoveTo(new Vector3(x, playerModel.YPosition, playerModel.ZPosition));
