@@ -1,6 +1,5 @@
 using UnityEngine;
 using TiOKawa.Scripts.View;
-using TiOKawa.Scenes.Settings.Scripts.View;
 using UniRx;
 using UnityEngine.SceneManagement;
 using TiOKawa.Scripts.Presenter;
@@ -46,18 +45,27 @@ namespace TiOKawa.Scenes.Settings.Scripts.Presenter
         {
             PlayerPrefs.SetFloat("MasterVolume", volume);
             PlayerPrefs.Save();
+            
+            if (AudioManager.Instance)
+                AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
         void OnSfxVolumeChanged(float volume)
         {
             PlayerPrefs.SetFloat("SfxVolume", volume);
             PlayerPrefs.Save();
+            
+            if (AudioManager.Instance)
+                AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
         void OnBgmVolumeChanged(float volume)
         {
             PlayerPrefs.SetFloat("BgmVolume", volume);
             PlayerPrefs.Save();
+            
+            if (AudioManager.Instance)
+                AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
         void LoadSettings()
