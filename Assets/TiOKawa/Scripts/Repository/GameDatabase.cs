@@ -15,7 +15,7 @@ namespace TiOKawa.Scripts.Repository
 
         public static MemoryDatabase Master { get; private set; }
 
-        public static TemporaryData Temporary { get; private set; }
+        public static TemporaryData Temporary { get; private set; } = new();
 
         static GameDatabase()
         {

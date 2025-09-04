@@ -8,15 +8,28 @@ namespace TiOKawa.Scenes.Result.Scripts.View
     public class ResultSceneView : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI levelText;
-
-        void Start()
-        {
-            ShowLevel(5);
-        }
+        [SerializeField] TextMeshProUGUI diedTiokawaCountText;
+        [SerializeField] TextMeshProUGUI defeatedEnemyCountText;
+        [SerializeField] TextMeshProUGUI tiokawaCountText;
 
         public void ShowLevel(int level)
         {
-            levelText.text = $"LEVEL: {level}";
+            levelText.text = $"{level}";
+        }
+
+        public void ShowDiedTiokawaCount(int count)
+        {
+            diedTiokawaCountText.text = $"{count}";
+        }
+
+        public void ShowDefeatedEnemyCount(int count)
+        {
+            defeatedEnemyCountText.text = $"{count}";
+        }
+
+        public void ShowTiokawaCount(int count)
+        {
+            tiokawaCountText.text = $"{count}";
         }
     }     
 }
