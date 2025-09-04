@@ -30,5 +30,14 @@ namespace TiOKawa.Prefabs.Player.Scripts.Presenter
             var length = vector2Position.x * vector2Position.x + vector2Position.y * vector2Position.y;
             return length < (GateCollisionRadius + 3) * (GateCollisionRadius + 3);
         }
+
+        public bool IsInPlayerCircle(float left, float right, float z)
+        {
+            var leftLength = Mathf.Pow(left, 2) + Mathf.Pow((z + 60), 2);
+            var rightLength = Mathf.Pow(right, 2) + Mathf.Pow((z + 60), 2);
+            var radius = Mathf.Pow(GateCollisionRadius + 2, 2);
+
+            return leftLength <= radius || rightLength <= radius;
+        }
     }
 }

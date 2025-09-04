@@ -28,6 +28,8 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
         List<BattleWaveEnemyModel> currentWaveEnemyModels;
         BattleWaveGateModel currentBattleWaveGateModel;
 
+        bool isFinGame = false;
+
         protected override void SetupModel()
         {
             // TODO: battleIDの取得処理
@@ -51,18 +53,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
         void Update()
         {
-            var isWin = playerPresenter.PlayerCount != 0 && battleModel.IsLastWave;
             var isLose = playerPresenter.PlayerCount == 0;
 
-            if (!isWin && !isLose) return;
+            if (!isFinGame && !isLose) return;
 
             Debug.Log("Finished This Battle!!!!!", this);
-            MoveToResult();
-        }
-
-        async void MoveToResult()
-        {
-            await UniTask.WaitForSeconds(2);
 
             battleModel.SaveResult();
             SceneManager.LoadScene("Result");
@@ -70,7 +65,13 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
         void UpdateWave()
         {
-            if (battleModel.IsLastWave) return;
+            if (battleModel.IsLastWave)
+            {
+                Observable.Timer(TimeSpan.FromSeconds(currentWaveModel.Period))
+                    .Subscribe(_ => FinGame())
+                    .AddTo(this);
+                return;
+            }
 
             currentWaveModel = battleModel.GetCurrentWaveModel();
             currentWaveEnemyModels = currentWaveModel.GetWaveEnemyModels();
@@ -103,6 +104,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
                 Quaternion.identity
             );
             createdPresenter.Setup(currentBattleWaveGateModel.IncrementalAmount, playerPresenter);
+        }
+
+        void FinGame()
+        {
+            isFinGame = true;
         }
 
         void SpawnEnemy((SpawnType spawnType, int id)obj)
