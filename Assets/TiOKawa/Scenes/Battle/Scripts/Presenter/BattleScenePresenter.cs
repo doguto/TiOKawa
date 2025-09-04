@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using TiOKawa.Prefabs.Gate.Scripts.Presenter;
+using TiOKawa.Prefabs.Gate.Scripts.View;
 using TiOKawa.Prefabs.Player.Scripts.Presenter;
 using TiOKawa.Scenes.Battle.Scripts.Model;
 using TiOKawa.Scripts.Presenter;
@@ -13,6 +15,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
     public class BattleScenePresenter : MonoPresenter
     {
         [SerializeField] PlayerPresenter playerPresenter;
+        [SerializeField] GatePresenter gatePresenter;
         [SerializeField] DraggableArea playerControlArea;
 
         BattleModel battleModel;
@@ -74,11 +77,12 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
             // TODO: SpawnTypeをカラムに追加次第、引数に設定
             var spawnPositionX = GetSpawnPositionX(SpawnType.RightRandom, battleModel.SpawnableStageWidth);
-            Instantiate(
-                currentBattleWaveGateModel.Prefab,
-                new Vector3(spawnPositionX, 2.5f, battleModel.SpawnPointZPosition),
+            var createdPresenter = Instantiate(
+                gatePresenter,
+                new Vector3(spawnPositionX, 3f, battleModel.SpawnPointZPosition),
                 Quaternion.identity
             );
+            createdPresenter.Setup(currentBattleWaveGateModel.IncrementalAmount);
         }
 
         void SpawnEnemy((SpawnType spawnType, GameObject prefab)obj)

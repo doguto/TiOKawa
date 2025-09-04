@@ -616,6 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPresenter: {fileID: 1944854246}
+  gatePresenter: {fileID: 3957759977959057839, guid: bee0dea987d9bf744bcdcfdcd20a68eb, type: 3}
   playerControlArea: {fileID: 1098666898}
 --- !u!1 &1098666894
 GameObject:
