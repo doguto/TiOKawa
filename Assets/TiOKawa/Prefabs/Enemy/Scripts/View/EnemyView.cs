@@ -1,4 +1,5 @@
-﻿using TiOKawa.Scripts.View;
+﻿using DG.Tweening;
+using TiOKawa.Scripts.View;
 using UnityEngine;
 
 namespace TiOKawa.Prefabs.Enemy.Scripts.View
@@ -6,15 +7,20 @@ namespace TiOKawa.Prefabs.Enemy.Scripts.View
     public class EnemyView : MonoView
     {
         Transform myTransform;
-        
+
         void Awake()
         {
             myTransform = transform;
         }
-        
-        public void MoveTo(float targetZPosition)
+
+        void Start()
         {
-            
+            MoveTo(-100, 100);
+        }
+
+        public void MoveTo(float moveValue, float time)
+        {
+            myTransform.DOLocalMoveZ(moveValue, time);
         }
     }
 }

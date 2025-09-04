@@ -8,6 +8,6 @@ namespace TiOKawa.Scripts.Infra.Schema
     {
         [PrimaryKey]
         public int Id { get; set; }
-        public int SpawnPointZPosition { get; set; }
+        public int BattleStageId { get; set; }
     }
 }
