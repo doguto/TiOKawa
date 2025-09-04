@@ -3,21 +3,24 @@ using MessagePack;
 using MessagePack.Resolvers;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using TiOKawa.Scripts.Infra;
 
 namespace TiOKawa.Scripts.Repository
 {
     public static class GameDatabase
     {
-        const string BinaryDirectoryPath = "Assets/Project/DataStore/Binary";
+        const string BinaryDirectoryPath = "Assets/TiOKawa/DataStore/Binary";
 
         const string MasterDataBinaryName = "MasterData.bytes";
 
         public static MemoryDatabase Master { get; private set; }
-        
+
+        public static TemporaryData Temporary { get; private set; }
+
         static GameDatabase()
         {
             var masterDataBinaryPath = $"{BinaryDirectoryPath}/{MasterDataBinaryName}";
-            
+
             // MessagePackの初期化
             var messagePackResolvers = CompositeResolver.Create(
                 MasterMemoryResolver.Instance,
