@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BgmManger : MonoBehaviour
+public class BgmManager : MonoBehaviour
 {
     [SerializeField] AudioSource bgm;
     [SerializeField] List<AudioClip> audioClips;

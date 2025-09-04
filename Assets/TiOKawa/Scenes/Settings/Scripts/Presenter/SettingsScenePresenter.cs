@@ -1,6 +1,6 @@
 using UnityEngine;
 using TiOKawa.Scripts.View;
-using TiOKawa.Scenes.Settings.Scripts.View;
+using TiOKawa.Scripts.Audio;
 using UniRx;
 using UnityEngine.SceneManagement;
 using TiOKawa.Scripts.Presenter;
@@ -47,7 +47,7 @@ namespace TiOKawa.Scenes.Settings.Scripts.Presenter
             PlayerPrefs.SetFloat("MasterVolume", volume);
             PlayerPrefs.Save();
             
-            if (AudioManager.Instance != null)
+            if (AudioManager.Instance)
                 AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
@@ -56,7 +56,7 @@ namespace TiOKawa.Scenes.Settings.Scripts.Presenter
             PlayerPrefs.SetFloat("SfxVolume", volume);
             PlayerPrefs.Save();
             
-            if (AudioManager.Instance != null)
+            if (AudioManager.Instance)
                 AudioManager.Instance.UpdateAllVolumeSettings();
         }
 
@@ -65,7 +65,7 @@ namespace TiOKawa.Scenes.Settings.Scripts.Presenter
             PlayerPrefs.SetFloat("BgmVolume", volume);
             PlayerPrefs.Save();
             
-            if (AudioManager.Instance != null)
+            if (AudioManager.Instance)
                 AudioManager.Instance.UpdateAllVolumeSettings();
         }
 

@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+namespace TiOKawa.Scripts.Audio
+{
+    public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [SerializeField] private BgmManger bgmManager;
+    [SerializeField] private BgmManager bgmManager;
     [SerializeField] private SEManager seManager;
 
     void Awake()
@@ -23,7 +25,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         if (bgmManager == null)
-            bgmManager = FindObjectOfType<BgmManger>();
+            bgmManager = FindObjectOfType<BgmManager>();
         
         if (seManager == null)
             seManager = FindObjectOfType<SEManager>();
@@ -31,40 +33,41 @@ public class AudioManager : MonoBehaviour
 
     public void UpdateAllVolumeSettings()
     {
-        if (bgmManager != null)
+        if (bgmManager)
             bgmManager.UpdateVolumeSettings();
         
-        if (seManager != null)
+        if (seManager)
             seManager.UpdateVolumeSettings();
     }
 
     public void PlayBGM()
     {
-        if (bgmManager != null)
+        if (bgmManager)
             bgmManager.StartBgm();
     }
 
     public void StopBGM()
     {
-        if (bgmManager != null)
+        if (bgmManager)
             bgmManager.StopBgm();
     }
 
     public void ChangeBGM(int bgmNumber)
     {
-        if (bgmManager != null)
+        if (bgmManager)
             bgmManager.ChangeBgm(bgmNumber);
     }
 
     public void PlaySE(int seNumber)
     {
-        if (seManager != null)
+        if (seManager)
             seManager.PlaySE(seNumber);
     }
 
     public void PlaySE(AudioClip clip)
     {
-        if (seManager != null)
+        if (seManager)
             seManager.PlaySE(clip);
+    }
     }
 }

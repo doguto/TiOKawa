@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UniRx;
 using TiOKawa.Scripts.View;
 
-namespace TiOKawa.Scenes.Settings.Scripts.View
+namespace TiOKawa.Scripts.View
 {
     public class VolumeSettingView : MonoView
     {
