@@ -8,16 +8,17 @@ namespace TiOKawa.Scenes.SelectStage.Scripts.View
 {
     public class SelectStageView : MonoView, IPointerClickHandler
     {
-        protected readonly Subject<Unit> onClicked = new();
+        [SerializeField] private int buttonId;
+        protected readonly Subject<int> onClicked = new();
 
-        public IObservable<Unit> OnClicked => onClicked;
+        public IObservable<int> OnClicked => onClicked;
         public bool IsActive { get; private set; } = true;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!IsActive) return;
-            
-            onClicked.OnNext(Unit.Default);
+            if (!IsActive) return; 
+
+            onClicked.OnNext(buttonId);
         }
 
         void OnDestroy()
