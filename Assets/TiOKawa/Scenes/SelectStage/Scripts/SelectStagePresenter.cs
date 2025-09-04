@@ -3,14 +3,14 @@ using TiOKawa.Scenes.SelectStage.Scripts.View;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 
 namespace TiOKawa.Scenes.SelectStage.Scripts.Presenter
 {
     public class SelectStagePresenter : MonoPresenter
     {
         [SerializeField] private SelectStageView stageView;
-        [SerializeField] private string stageSceneName;
-
+        const string stageSceneName = "Battle"; 
         private void Start()
         {
             stageView.OnClicked
