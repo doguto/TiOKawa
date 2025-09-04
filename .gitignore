@@ -105,6 +105,9 @@ InitTestScene*.unity*
 # vsconfig
 .vsconfig
 
+# vsconfig
+.vsconfig
+
 # 大容量フォントアセットを無視
 Assets/TiOKawa/Fonts/NotoSansJP-Medium SDF.asset
 Assets/TiOKawa/Fonts/NotoSansJP-Medium SDF.asset.meta
