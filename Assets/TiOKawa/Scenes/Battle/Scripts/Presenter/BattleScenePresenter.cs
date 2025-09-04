@@ -82,7 +82,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
                 new Vector3(spawnPositionX, 3f, battleModel.SpawnPointZPosition),
                 Quaternion.identity
             );
-            createdPresenter.Setup(currentBattleWaveGateModel.IncrementalAmount);
+            createdPresenter.Setup(currentBattleWaveGateModel.IncrementalAmount, playerPresenter);
         }
 
         void SpawnEnemy((SpawnType spawnType, GameObject prefab)obj)

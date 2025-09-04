@@ -1,6 +1,8 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using TiOKawa.Scripts.View;
 using TMPro;
+using UniRx;
 using UnityEngine;
 
 namespace TiOKawa.Prefabs.Gate.Scripts.View
@@ -8,12 +10,14 @@ namespace TiOKawa.Prefabs.Gate.Scripts.View
     public class GateView : MonoView
     {
         [SerializeField] TextMeshProUGUI text;
-
+        
         Transform myTransform;
+        public ReactiveProperty<Vector3> Position { get; } = new();
 
         void Awake()
         {
             myTransform = transform;
+            Position.Value = myTransform.position;
         }
         
         void Start()
@@ -28,7 +32,12 @@ namespace TiOKawa.Prefabs.Gate.Scripts.View
 
         public void MoveTo()
         {
-            myTransform.DOLocalMoveZ(-100, 100);
+            myTransform.DOLocalMoveZ(-150, 20);
+        }
+
+        public void SetActive(bool active)
+        {
+            gameObject.SetActive(active);
         }
     }
 }
