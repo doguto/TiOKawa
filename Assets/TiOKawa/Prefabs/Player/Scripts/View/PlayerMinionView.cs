@@ -12,6 +12,8 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
         Transform myTransform;
         List<PlayerView> players = new();
 
+        public int PlayerCount => players.Count;
+
         // 軍団配置設定
         [Header("Formation Settings")]
         [SerializeField] float unitSpacing = 1.2f; // ユニット間の基本間隔

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using TiOKawa.Prefabs.Enemy.Scripts.Presenter;
 using TiOKawa.Prefabs.Enemy.Scripts.View;
 using TiOKawa.Prefabs.Gate.Scripts.Presenter;
@@ -10,6 +11,7 @@ using TiOKawa.Scripts.Presenter;
 using TiOKawa.Scripts.View;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace TiOKawa.Scenes.Battle.Scripts.Presenter
@@ -47,13 +49,28 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             UpdateWave();
         }
 
+        void Update()
+        {
+            var isWin = playerPresenter.PlayerCount != 0 && battleModel.IsLastWave;
+            var isLose = playerPresenter.PlayerCount == 0;
+
+            if (!isWin && !isLose) return;
+
+            Debug.Log("Finished This Battle!!!!!", this);
+            MoveToResult();
+        }
+
+        async void MoveToResult()
+        {
+            await UniTask.WaitForSeconds(2);
+
+            battleModel.SaveResult();
+            SceneManager.LoadScene("Result");
+        }
+
         void UpdateWave()
         {
-            if (battleModel.IsLastWave)
-            {
-                Debug.Log("Finished This Battle!!!!!", this);
-                return;
-            }
+            if (battleModel.IsLastWave) return;
 
             currentWaveModel = battleModel.GetCurrentWaveModel();
             currentWaveEnemyModels = currentWaveModel.GetWaveEnemyModels();

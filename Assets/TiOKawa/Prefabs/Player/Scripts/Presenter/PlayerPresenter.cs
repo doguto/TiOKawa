@@ -13,10 +13,10 @@ namespace TiOKawa.Prefabs.Player.Scripts.Presenter
         readonly PlayerModel playerModel = new();
 
         public float GateCollisionRadius => playerMinionView.CurrentMaxRadius * 0.9f;
-        
+        public int PlayerCount => playerMinionView.PlayerCount;
+
         public void SpawnPlayer() => playerMinionView.SpawnPlayer();
         public void SpawnPlayers(int count) => playerMinionView.SpawnPlayers(count);
-
         public void DestroyPlayers(int count) => playerMinionView.DestroyPlayers(count);
         
         public void SetPosition(float x)
