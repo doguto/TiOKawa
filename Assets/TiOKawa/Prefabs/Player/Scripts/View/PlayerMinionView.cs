@@ -13,8 +13,8 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
 
         // 軍団配置設定
         [Header("Formation Settings")]
-        [SerializeField] float unitSpacing = 0.5f; // ユニット間の基本間隔
-        [SerializeField] float formationRadius = 2f; // 軍団の最大半径
+        [SerializeField] float unitSpacing = 1.5f; // ユニット間の基本間隔
+        [SerializeField] float formationRadius = 5f; // 軍団の最大半径
         [SerializeField] int unitsPerRing = 8; // 1つのリングに配置するユニット数
         [SerializeField] float randomOffset = 0.1f; // ランダムな位置オフセット
 

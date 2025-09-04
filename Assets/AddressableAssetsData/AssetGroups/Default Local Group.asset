@@ -17,18 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7dd269ab24e90b049baa9f4231620f96
   m_SerializeEntries:
-  - m_GUID: 19b7a008abd91074cb5049ed17aff417
-    m_Address: Assets/TiOKawa/Prefabs/Enemy/SlimePBR.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 387506704292981428c0ac16f22e836f
     m_Address: Assets/TiOKawa/DataStore/Binary/MasterData.bytes
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6fe69f0da0c32124fae3ad1ca81dd7e9
+  - m_GUID: 7cd9e48fca52e8f4b94f857f81bda6a5
     m_Address: Assets/TiOKawa/Prefabs/Enemy/TurtleShellPBR.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbc566d8a03b9fe4787c89cdf51d0df2
+    m_Address: Assets/TiOKawa/Prefabs/Enemy/SlimePBR.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

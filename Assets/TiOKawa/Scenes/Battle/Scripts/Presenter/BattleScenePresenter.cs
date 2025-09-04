@@ -35,8 +35,9 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
         protected override void AfterInit()
         {
+            playerPresenter.SpawnPlayer();
+
             UpdateWave();
-            Debug.Log("Setting Subscriber");
         }
 
         void UpdateWave()
