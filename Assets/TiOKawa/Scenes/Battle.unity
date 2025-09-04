@@ -1090,6 +1090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2647296514934298303, guid: affed9285448ada489b64f425e33cbd1, type: 3}
+      propertyPath: playerView
+      value: 
+      objectReference: {fileID: -6684152309396067532, guid: c605772a1bc709e4e8151babc11089a3, type: 3}
     - target: {fileID: 3662209804169929017, guid: affed9285448ada489b64f425e33cbd1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
