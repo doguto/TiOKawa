@@ -618,6 +618,9 @@ MonoBehaviour:
   playerPresenter: {fileID: 1944854246}
   gatePresenter: {fileID: 3957759977959057839, guid: bee0dea987d9bf744bcdcfdcd20a68eb, type: 3}
   playerControlArea: {fileID: 1098666898}
+  enemyPresenters:
+  - {fileID: 1401548362385946438, guid: bbc566d8a03b9fe4787c89cdf51d0df2, type: 3}
+  - {fileID: 5988693279290310887, guid: 7cd9e48fca52e8f4b94f857f81bda6a5, type: 3}
 --- !u!1 &1098666894
 GameObject:
   m_ObjectHideFlags: 0

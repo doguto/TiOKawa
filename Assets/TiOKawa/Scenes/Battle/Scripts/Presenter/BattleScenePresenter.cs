@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using TiOKawa.Prefabs.Enemy.Scripts.Presenter;
+using TiOKawa.Prefabs.Enemy.Scripts.View;
 using TiOKawa.Prefabs.Gate.Scripts.Presenter;
 using TiOKawa.Prefabs.Gate.Scripts.View;
 using TiOKawa.Prefabs.Player.Scripts.Presenter;
@@ -17,6 +19,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
         [SerializeField] PlayerPresenter playerPresenter;
         [SerializeField] GatePresenter gatePresenter;
         [SerializeField] DraggableArea playerControlArea;
+        [SerializeField] List<EnemyPresenter> enemyPresenters;
 
         BattleModel battleModel;
         BattleWaveModel currentWaveModel;
@@ -85,16 +88,17 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             createdPresenter.Setup(currentBattleWaveGateModel.IncrementalAmount, playerPresenter);
         }
 
-        void SpawnEnemy((SpawnType spawnType, GameObject prefab)obj)
+        void SpawnEnemy((SpawnType spawnType, int id)obj)
         {
             var stageWidth = battleModel.SpawnableStageWidth;
             var spawnPositionX = GetSpawnPositionX(obj.spawnType, stageWidth);
 
-            Instantiate(
-                obj.prefab,
+            var createdPresenter = Instantiate(
+                enemyPresenters[obj.id - 1],
                 new Vector3(spawnPositionX, 1.1f, battleModel.SpawnPointZPosition),
                 new Quaternion(0, 1, 0, 0)
             );
+            createdPresenter.Setup(playerPresenter);
         }
 
         void UpdatePlayerPosition(Vector2 position)

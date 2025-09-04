@@ -9,6 +9,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
     {
         readonly Enemy enemy;
         public GameObject Prefab { get; private set; }
+        public int Id => enemy.Id;
 
         public EnemyModel(int id)
         {

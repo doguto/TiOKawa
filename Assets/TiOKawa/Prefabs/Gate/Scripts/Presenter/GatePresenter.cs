@@ -20,7 +20,7 @@ namespace TiOKawa.Prefabs.Gate.Scripts.Presenter
             if (playerPresenter.IsInPlayerCircle(gateView.transform.position))
             {
                 playerPresenter.SpawnPlayers(incrementalAmount);
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
 
