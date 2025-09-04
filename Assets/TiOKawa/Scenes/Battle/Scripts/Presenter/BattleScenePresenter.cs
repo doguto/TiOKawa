@@ -11,6 +11,8 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 {
     public class BattleScenePresenter : MonoPresenter
     {
+        [SerializeField] DraggableArea playerControlArea;
+
         BattleModel battleModel;
         BattleWaveModel currentWaveModel;
         List<BattleWaveEnemyModel> currentWaveEnemyModels;
@@ -22,6 +24,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             battleModel = new BattleModel(1);
             currentWaveModel = battleModel.GetCurrentWaveModel();
             currentWaveEnemyModels = currentWaveModel.GetWaveEnemyModels();
+        }
+
+        protected override void SubscribeView()
+        {
+            playerControlArea.OnDragged.Subscribe();
         }
 
         protected override void AfterInit()
@@ -78,6 +85,11 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
                 new Vector3(spawnPositionX, 1.1f, battleModel.SpawnPointZPosition),
                 new Quaternion(0, 1, 0, 0)
             );
+        }
+
+        void UpdatePlayerPosition(Vector2 position)
+        {
+            
         }
     }
 }
