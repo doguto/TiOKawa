@@ -3,6 +3,7 @@ using MessagePack;
 using MessagePack.Resolvers;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using TiOKawa.Scripts.Infra;
 
 namespace TiOKawa.Scripts.Repository
 {
