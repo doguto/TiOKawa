@@ -1,4 +1,5 @@
-﻿using TiOKawa.Prefabs.Player.Scripts.Model;
+﻿using System;
+using TiOKawa.Prefabs.Player.Scripts.Model;
 using TiOKawa.Prefabs.Player.Scripts.View;
 using TiOKawa.Scripts.Presenter;
 using UnityEngine;
@@ -9,7 +10,12 @@ namespace TiOKawa.Prefabs.Player.Scripts.Presenter
     {
         [SerializeField] PlayerMinionView playerMinionView;
         
-        PlayerModel playerModel = new();
+        readonly PlayerModel playerModel = new();
+
+        public void SpawnPlayer()
+        {
+            playerMinionView.SpawnPlayer();
+        }
 
         public void SetPosition(float x)
         {
