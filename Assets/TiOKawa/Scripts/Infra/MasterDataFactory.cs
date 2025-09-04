@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿#if UNITY_EDITOR
+
+using System.Linq;
 using TiOKawa.Scripts.Infra.Origin;
 using TiOKawa.Scripts.Infra.Schema;
 using UnityEditor;
@@ -41,3 +43,5 @@ namespace TiOKawa.Scripts.Infra
         }
     }
 }
+
+#endif
