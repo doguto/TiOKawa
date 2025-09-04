@@ -14,15 +14,9 @@ namespace TiOKawa.Scenes.Result.Scripts.Model
         public ResultSceneModel()
         {
 
-            var hoge = GameDatabase.Temporary.BattleResult;
-            
-            int diedTiokawaCount = hoge.DiedTiokawaCount;
-            int level = hoge.Level;
-            int defeatedEnemyCount = hoge.DefeatedEnemyCount;
-            int tiokawaCount = hoge.TiokawaCount;
-
-            Result = new BattleResult(diedTiokawaCount, level, defeatedEnemyCount, tiokawaCount);
+            Result = GameDatabase.Temporary.BattleResult;
         }
+
         public int GetLevel()
         {
             return Result.Level;
@@ -37,7 +31,7 @@ namespace TiOKawa.Scenes.Result.Scripts.Model
         {
             return Result.DefeatedEnemyCount;
         }
-        
+
         public int GetTiokawaCount()
         {
             return Result.TiokawaCount;
