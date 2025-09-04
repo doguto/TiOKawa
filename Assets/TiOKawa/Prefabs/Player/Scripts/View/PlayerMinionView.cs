@@ -13,10 +13,12 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
 
         // 軍団配置設定
         [Header("Formation Settings")]
-        [SerializeField] float unitSpacing = 1.5f; // ユニット間の基本間隔
-        [SerializeField] float formationRadius = 5f; // 軍団の最大半径
+        [SerializeField] float unitSpacing = 1.2f; // ユニット間の基本間隔
+        [SerializeField] float formationRadius = 10f; // 軍団の最大半径
         [SerializeField] int unitsPerRing = 8; // 1つのリングに配置するユニット数
         [SerializeField] float randomOffset = 0.1f; // ランダムな位置オフセット
+
+        float currentMaxRadius;
 
         void Awake()
         {
@@ -25,17 +27,16 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
 
         public void MoveTo(Vector3 targetPosition)
         {
+            targetPosition.x = Mathf.Clamp(targetPosition.x, -currentMaxRadius, currentMaxRadius);
             myTransform.position = targetPosition;
         }
 
         public void SpawnPlayer()
         {
-            Debug.Log("hogehogehogeho");
-            
             var createdPlayer = Instantiate(playerView, myTransform);
-            
+
             // 軍団配置位置を計算
-            Vector3 spawnPosition = CalculateFormationPosition(players.Count);
+            var spawnPosition = CalculateFormationPosition(players.Count);
             createdPlayer.transform.localPosition = spawnPosition;
             
             players.Add(createdPlayer);
@@ -52,7 +53,7 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
                 SpawnPlayer();
             }
         }
-        
+
         /// <summary>
         /// 軍団配置の位置を計算
         /// </summary>
@@ -74,7 +75,9 @@ namespace TiOKawa.Prefabs.Player.Scripts.View
             // リングの半径を計算（内側から外側へ）
             float radius = unitSpacing * ring;
             radius = Mathf.Min(radius, formationRadius);
-            
+
+            currentMaxRadius = Mathf.Max(radius, currentMaxRadius);
+
             // 角度を計算（均等配置）
             float angleStep = 360f / unitsInCurrentRing;
             float angle = angleStep * indexInRing;
