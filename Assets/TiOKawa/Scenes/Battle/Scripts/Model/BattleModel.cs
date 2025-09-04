@@ -16,7 +16,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Model
 
         int battleWaveIndex;
         public bool IsLastWave { get; private set; }
-        public float SpawnableStageWidth => battleStage.Width * 0.8f;
+        public float SpawnableStageWidth => battleStage.Width * 0.75f;
         public float SpawnPointZPosition => battleStage.SpawnPositionZ;
 
         public BattleModel(int battleId)

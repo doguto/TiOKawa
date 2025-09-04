@@ -18,6 +18,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
         BattleModel battleModel;
         BattleWaveModel currentWaveModel;
         List<BattleWaveEnemyModel> currentWaveEnemyModels;
+        BattleWaveGateModel currentBattleWaveGateModel;
 
         protected override void SetupModel()
         {
@@ -50,6 +51,7 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
 
             currentWaveModel = battleModel.GetCurrentWaveModel();
             currentWaveEnemyModels = currentWaveModel.GetWaveEnemyModels();
+            currentBattleWaveGateModel = currentWaveModel.GetGateModel();
 
             battleModel.PrepareNextWave();
 
@@ -67,21 +69,22 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
                     .Subscribe(_ => waveEnemyModel.Spawn())
                     .AddTo(this);
             }
+
+            if (!currentBattleWaveGateModel.HasGate) return;
+
+            // TODO: SpawnTypeをカラムに追加次第、引数に設定
+            var spawnPositionX = GetSpawnPositionX(SpawnType.RightRandom, battleModel.SpawnableStageWidth);
+            Instantiate(
+                currentBattleWaveGateModel.Prefab,
+                new Vector3(spawnPositionX, 2.5f, battleModel.SpawnPointZPosition),
+                Quaternion.identity
+            );
         }
 
         void SpawnEnemy((SpawnType spawnType, GameObject prefab)obj)
         {
             var stageWidth = battleModel.SpawnableStageWidth;
-            var spawnPositionX = obj.spawnType switch
-            {
-                SpawnType.AllRandom => Random.Range(-stageWidth, stageWidth),
-                SpawnType.LeftRandom => Random.Range(-stageWidth, 0),
-                SpawnType.RightRandom => Random.Range(0, stageWidth),
-                SpawnType.Left => -stageWidth,
-                SpawnType.Right => stageWidth,
-                SpawnType.Center => 0,
-                _ => Random.Range(-stageWidth, stageWidth)
-            };
+            var spawnPositionX = GetSpawnPositionX(obj.spawnType, stageWidth);
 
             Instantiate(
                 obj.prefab,
@@ -97,6 +100,20 @@ namespace TiOKawa.Scenes.Battle.Scripts.Presenter
             var coef = 8f;
             var worldX = (position.x - playerControlArea.CenterXPosition) * coef / playerControlArea.HalfSize;
             playerPresenter.SetPosition(worldX);
+        }
+
+        float GetSpawnPositionX(SpawnType spawnType, float stageWidth)
+        {
+            return spawnType switch
+            {
+                SpawnType.AllRandom => Random.Range(-stageWidth, stageWidth),
+                SpawnType.LeftRandom => Random.Range(-stageWidth, 0),
+                SpawnType.RightRandom => Random.Range(0, stageWidth),
+                SpawnType.Left => -stageWidth,
+                SpawnType.Right => stageWidth,
+                SpawnType.Center => 0,
+                _ => Random.Range(-stageWidth, stageWidth)
+            };
         }
     }
 }

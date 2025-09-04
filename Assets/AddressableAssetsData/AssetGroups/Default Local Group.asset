@@ -32,6 +32,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bee0dea987d9bf744bcdcfdcd20a68eb
+    m_Address: Assets/TiOKawa/Prefabs/Gate/Gate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2143c858bf8aa82459a720f6bb933984, type: 2}
   m_SchemaSet:
