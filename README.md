@@ -124,5 +124,7 @@ Assets/TiOKawa/
 
 - **kuto** - プロジェクト作成者およびメイン開発者
 - **YuTakane256** - BGM機能の実装
-- **tytdroid** - タイトル画面の実装
+- **tytdroid** - タイトル画面・リザルト画面の実装
+- **Minamogu** - ステージ選択機能の実装
+- **Inuman0228** - 設定画面・音量調整機能の実装
 - **copilot-swe-agent[bot]** - 自動化による貢献
