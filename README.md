@@ -122,7 +122,9 @@ Assets/TiOKawa/
 
 ## Contributors
 
-- **kuto** - プロジェクト作成者およびメイン開発者
-- **YuTakane256** - BGM機能の実装
-- **tytdroid** - タイトル画面の実装
-- **copilot-swe-agent[bot]** - 自動化による貢献
+- **[kuto](https://github.com/doguto)** - プロジェクト作成者およびメイン開発者
+- **[YuTakane256](https://github.com/YuTakane256)** - BGM機能の実装
+- **[tytdroid](https://github.com/tytdroid)** - タイトル画面・リザルト画面の実装
+- **[Minamogu](https://github.com/Minamogu)** - ステージ選択機能の実装
+- **[Inuman0228](https://github.com/Inuman0228)** - 設定画面・音量調整機能の実装
+- **[copilot-swe-agent[bot]](https://github.com/apps/copilot-swe-agent)** - 自動化による貢献
